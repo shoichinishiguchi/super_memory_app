@@ -1,0 +1,11 @@
+.header
+  %h1.header__title
+    =link_to "MemoryApp", root_path, class:"header__title"
+  %h1.header__title NEW
+  %ul.header__menu__list
+    %li.header__menu__list-login
+      =link_to "ログイン", "",class: "header__menu-login"
+    -# %li.header__menu__list-login
+    -#   =link_to "ログアウト", "",class: "header__menu-login"
+    %li.header__menu__list-signup
+      =link_to "User登録", "",class: "header__menu-signup"

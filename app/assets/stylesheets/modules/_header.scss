@@ -1,0 +1,27 @@
+.header {
+  @include flex-spbet;
+  border-bottom: solid 1px black;
+  &__title {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  &__title:hover {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  &__menu {
+    &__list {
+      margin: 5px 10px 0 5px;
+      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      & li {
+        margin: 5px 0 5px 0px;
+      }
+    }
+  }
+}
