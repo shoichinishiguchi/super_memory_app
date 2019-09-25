@@ -1,0 +1,24 @@
+.created-time {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.question-box {
+  border: 1px solid $black;
+  width: 400px;
+  text-align: center;
+  &__title {
+    border-bottom: 1px solid $black;
+  }
+  &__set {
+    @include flex;
+    min-height: 100px;
+    &__question {
+      width: 50%;
+      border-right: 1px solid $black;
+    }
+    &__answer {
+      width: 50%;
+    }
+  }
+}

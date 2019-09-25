@@ -1,0 +1,50 @@
+.form-question-new {
+  margin-top: 10px;
+  label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.form-group-title {
+  @include flex-cen;
+  .label-title {
+    padding-top: 10px;
+    margin-right: 10px;
+    line-height: 18px;
+  }
+  .form-caution {
+    display: inline;
+    font-size: 8px;
+    padding-top: 20px;
+  }
+}
+.form-group-set {
+  @include flex-cen;
+  margin-top: 30px;
+  &__form {
+    @include flex-col;
+  }
+  .form-group {
+    &__form {
+      height: 120px;
+      max-width: 240px;
+      margin-right: 10px;
+    }
+    &__caution {
+      display: inline;
+      text-align: right;
+      font-size: 8px;
+    }
+  }
+}
+.form-btn {
+  margin: 10px;
+  width: 60px;
+  height: 40px;
+  float: right;
+}
+.question-new-questions {
+  margin-top: 60px;
+  border-top: 3px solid $gray;
+}

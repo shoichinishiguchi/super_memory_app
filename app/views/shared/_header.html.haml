@@ -1,7 +1,8 @@
 .header
   %h1.header__title
     =link_to "MemoryApp", root_path, class:"header__title"
-  %h1.header__title NEW
+  %h1.header__title
+    =page_title
   %ul.header__menu__list
     %li.header__menu__list-login
       =link_to "ログイン", "",class: "header__menu-login"
