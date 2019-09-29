@@ -3,6 +3,10 @@
   .side_bar
     =render partial: 'shared/side_bar', locals: {page_title: "New"}
   .container
+    - if @question.errors.present?
+      %ul#error_explanation
+        - @question.errors.full_messages.each do |message|
+          %li= message
     .form-question-new
       =form_with model: @question, local: true do |f|
         .form-group.form-group-title
@@ -13,7 +17,7 @@
           .form-group.form-group-set__form
             = f.label :question, "問題" ,class: "label label-question"
             = f.text_area :question, class: "form-group__form form-question"
-            .form-group__caution (最大400文字)　
+            .form-group__caution (最大400文字)
           .form-group.form-group-set__form
             = f.label :answer, "答え" , class: "label label-answer"
             = f.text_area :answer, class: "form form-group__form form-answer"

@@ -1,5 +1,12 @@
 ja:
   activerecord:
+    models:
+      question: "知識"
+    attributes:
+      question:
+        question: "問題"
+        title: "タイトル"
+        answer: "答え"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

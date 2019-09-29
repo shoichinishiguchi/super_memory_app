@@ -1,21 +1,21 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all.limit(20)
+    @questions = Question.all.order(created_at: "DESC").limit(20)
   end
 
   def new
     @question = Question.new
     @questions = Question.order(created_at: "DESC").limit(3)
-    # .pluck(:title, :question, :answer, :created_at)
   end
 
   def create
+    @questions = Question.order(created_at: "DESC").limit(3)
     @question = Question.new(question_params)
     if @question.save
       redirect_to new_question_path,  notice: "問題を登録しました。"
     else
-      redirect_to new_question_path,  notice: "エラーが発生しました。"
+      render :new,  notice: "問題が発生しました。"
     end
   end
 
