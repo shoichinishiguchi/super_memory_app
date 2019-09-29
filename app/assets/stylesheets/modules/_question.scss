@@ -1,27 +1,39 @@
 .question-wrap {
   @include flex-col-cen;
   padding: 0 calc(50% - 400px);
+  margin-bottom: 30px;
 }
 .created-time {
-  width: 400px;
   margin-top: 20px;
 }
 .question-box {
   border: 1px solid $black;
-  width: 800px;
+  max-width: 800px;
   text-align: center;
   &__title {
     border-bottom: 1px solid $black;
   }
   &__set {
     @include flex;
-    min-height: 100px;
     &__question {
       width: 50%;
       border-right: 1px solid $black;
+      min-height: 50px;
     }
     &__answer {
       width: 50%;
+      min-height: 50px;
+    }
+    @media (max-width: 600px) {
+      @include flex-col;
+      &__question {
+        width: 100%;
+        border-right: none;
+      }
+      &__answer {
+        border-top: 1px solid $black;
+        width: 100%;
+      }
     }
   }
 }

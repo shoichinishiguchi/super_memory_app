@@ -4,7 +4,7 @@
     =render partial: 'shared/side_bar', locals: {page_title: "New"}
   .container
     - if @question.errors.present?
-      %ul#error_explanation
+      %ul.error_explanation
         - @question.errors.full_messages.each do |message|
           %li= message
     .form-question-new

@@ -1,5 +1,6 @@
 .side_bar {
-  height: calc(100vh - 100px);
+  min-height: 200px;
+  margin-bottom: 30px;
   border-right: 1px $black solid;
   border-bottom: 1px $black solid;
 }
