@@ -1,6 +1,5 @@
-=render partial: 'shared/header', locals: {page_title: "Top"}
+=render partial: 'shared/header', locals: {page_title: ""}
 .middle
-  .side_bar
-    =render partial: 'shared/side_bar', locals: {page_title: "Home"}
+  =render partial: 'shared/side_bar', locals: {page_title: "Home"}
   .container
-    = button_to "知識の登録へ", {controller: 'questions', action: 'new'}, {method: :get , class: "question-new-btn"}
+    = render @questions

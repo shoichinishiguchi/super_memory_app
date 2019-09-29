@@ -1,11 +1,14 @@
+.question-wrap {
+  @include flex-col-cen;
+  padding: 0 calc(50% - 400px);
+}
 .created-time {
   width: 400px;
   margin-top: 20px;
 }
-
 .question-box {
   border: 1px solid $black;
-  width: 400px;
+  width: 800px;
   text-align: center;
   &__title {
     border-bottom: 1px solid $black;

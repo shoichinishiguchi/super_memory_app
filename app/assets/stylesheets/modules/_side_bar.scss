@@ -1,6 +1,7 @@
 .side_bar {
   height: calc(100vh - 100px);
   border-right: 1px $black solid;
+  border-bottom: 1px $black solid;
 }
 .page_title {
   width: 180px;

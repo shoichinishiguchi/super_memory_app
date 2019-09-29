@@ -24,11 +24,14 @@
   margin-top: 30px;
   &__form {
     @include flex-col;
+    width: 40%;
+    margin-right: 10px;
   }
   .form-group {
     &__form {
+      max-width: 360px;
+      width: 100%;
       height: 120px;
-      max-width: 240px;
       margin-right: 10px;
     }
     &__caution {
@@ -47,4 +50,5 @@
 .question-new-questions {
   margin-top: 60px;
   border-top: 3px solid $gray;
+  @include flex-col-cen;
 }

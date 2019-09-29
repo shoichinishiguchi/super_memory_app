@@ -1,1 +1,3 @@
-%h1.page_title=page_title
+.side_bar
+  %h1.page_title=page_title
+  = button_to "知識の登録へ", {controller: 'questions', action: 'new'}, {method: :get , class: "question-new-btn"}
