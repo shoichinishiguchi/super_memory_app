@@ -4,9 +4,11 @@
   %h1.header__title
     =page_title
   %ul.header__menu__list
-    %li.header__menu__list-login
-      =link_to "ログイン", "",class: "header__menu-login"
-    -# %li.header__menu__list-login
-    -#   =link_to "ログアウト", "",class: "header__menu-login"
-    %li.header__menu__list-signup
-      =link_to "User登録", "",class: "header__menu-signup"
+    -if current_user
+      %li.header__menu__list-login
+      =link_to "ログアウト", logout_path, method: :delete ,class: "header__menu-login"
+    -else
+      %li.header__menu__list-login
+        =link_to "ログイン", login_path ,class: "header__menu-login"
+      %li.header__menu__list-login
+        =link_to "新規会員登録", new_user_path ,class: "header__menu-login"

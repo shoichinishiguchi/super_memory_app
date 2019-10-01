@@ -1,12 +1,12 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all.order(created_at: "DESC").limit(20)
+    @questions = current_user.questions.recent.limit(20)
   end
 
   def new
     @question = Question.new
-    @questions = Question.order(created_at: "DESC").limit(3)
+    @questions = current_user.questions.recent.limit(3)
   end
 
   def create
@@ -20,9 +20,9 @@ class QuestionsController < ApplicationController
   end
 
   private
-  
+
   def question_params
-    params.require(:question).permit(:title, :question, :answer)
+    params.require(:question).permit(:title, :question, :answer).merge(user_id: current_user.id)
   end
 
 end

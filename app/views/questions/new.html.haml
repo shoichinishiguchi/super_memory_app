@@ -1,7 +1,6 @@
 =render partial: 'shared/header', locals: {page_title: ""}
 .middle
-  .side_bar
-    =render partial: 'shared/side_bar', locals: {page_title: "New"}
+  =render partial: 'shared/side_bar', locals: {page_title: "New"}
   .container
     - if @question.errors.present?
       %ul.error_explanation
