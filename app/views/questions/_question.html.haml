@@ -7,9 +7,13 @@
     .question-box__set
       .question-box__set__question
         =question.question
-      .question-box__set__answer
+      .question-box__set__answer.opacity-zero{id: "question_ans_#{question.id}"}
         =question.answer
   .question-operation
-    #ans_show_btn_contents
+    .ans_show_btn_contents{ id: "before_show_#{question.id}" }
       .correct_ans_cnt
         ="正解数：#{question.ans_count}"
+      %button.ans_show_btn.btn-primary{ question_id: "#{question.id}" } 解答を見る
+    .ans_show_btn_contents.display-none{ id: "after_show_#{question.id}" }
+      %button.up_importance{ question_id: "#{question.id}" } わからなかった。
+      %button.down_importance{ question_id: "#{question.id}" } わかった。

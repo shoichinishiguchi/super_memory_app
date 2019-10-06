@@ -21,7 +21,6 @@ RSpec.describe Question, type: :model do
       expect(question.errors[:title]).to include("を入力してください")
     end
 
-
     it "is valid with 500 chars question" do
       question = FactoryBot.build(:question, question: "a"*500)
       expect(question).to be_valid
@@ -56,6 +55,10 @@ RSpec.describe Question, type: :model do
       question.valid?
       expect(question.errors[:answer]).to include("を入力してください")
     end
+  end
+
+  describe "スコープ" do
+
   end
 
 
