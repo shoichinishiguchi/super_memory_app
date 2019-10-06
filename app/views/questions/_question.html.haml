@@ -15,5 +15,5 @@
         ="正解数：#{question.ans_count}"
       %button.ans_show_btn.btn-primary{ question_id: "#{question.id}" } 解答を見る
     .ans_show_btn_contents.display-none{ id: "after_show_#{question.id}" }
-      %button.up_importance{ question_id: "#{question.id}" } わからなかった。
-      %button.down_importance{ question_id: "#{question.id}" } わかった。
+      %button.btn-danger.up_importance{ question_id: "#{question.id}" } わからなかった。
+      %button.btn-success.down_importance{ question_id: "#{question.id}" } わかった。
