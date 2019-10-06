@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, notice: "こんにちは#{user.name}さん"
     else
-      render :new, notice: "メールアドレスまたはパスワードが違います。"
+      flash.now[:notice] =  "メールアドレスまたはパスワードが違います。"
+      render :new
     end
   end
 

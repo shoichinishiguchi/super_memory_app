@@ -5,7 +5,7 @@
       = form_with scope: :session, local: true do |f|
         .form-group
           = f.label :email, 'メールアドレス'
-          = f.text_field :email, class: 'form-control login-form', id: 'session_emial'
+          = f.text_field :email, class: 'form-control login-form', id: 'session_emial', autocomplete:'off'
         .form-group
           = f.label :password, 'パスワード'
           = f.password_field :password, class: 'form-control login-form', id: 'session_password'

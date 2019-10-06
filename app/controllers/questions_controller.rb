@@ -15,7 +15,8 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to new_question_path,  notice: "問題を登録しました。"
     else
-      render :new,  notice: "問題が発生しました。"
+      flash.now[:notice] = "問題が発生しました。"
+      render :new
     end
   end
 

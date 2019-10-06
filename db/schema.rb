@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_121858) do
+ActiveRecord::Schema.define(version: 2019_10_06_111156) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "question", null: false
     t.string "answer", null: false
     t.integer "importance"
     t.time "interval"
-    t.integer "correct_cnt"
-    t.integer "wrong_cnt"
+    t.integer "correct_cnt", default: 0, null: false
+    t.integer "wrong_cnt", default: 0, null: false
     t.timestamp "last_ans_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
