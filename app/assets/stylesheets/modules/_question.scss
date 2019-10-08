@@ -43,3 +43,7 @@
   border-right: 1px solid $black;
   height: 60px;
 }
+.ans_show_btn_contents {
+  @include flex-sparo-cen;
+  padding-top: 10px;
+}

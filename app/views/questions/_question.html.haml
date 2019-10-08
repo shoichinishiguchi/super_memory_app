@@ -1,4 +1,4 @@
-.question-wrap
+.question-wrap{ id: "question-wrap-#{question.id}" }
   .created-time
     =question.created_time
   .question-box
@@ -13,7 +13,15 @@
     .ans_show_btn_contents{ id: "before_show_#{question.id}" }
       .correct_ans_cnt
         ="正解数：#{question.ans_count}"
-      %button.ans_show_btn.btn-primary{ question_id: "#{question.id}" } 解答を見る
+      %button.ans_show_btn.btn-success{ question_id: "#{question.id}" } 解答を見る
     .ans_show_btn_contents.display-none{ id: "after_show_#{question.id}" }
-      %button.btn-danger.up_importance{ question_id: "#{question.id}" } わからなかった。
-      %button.btn-success.down_importance{ question_id: "#{question.id}" } わかった。
+      =button_to "わからなかった。", "/wrong/#{question.id}", {method: :post, class: "btn-danger ans_check_btn", id: "wrong-btn-#{question.id}" ,question_id: "#{question.id}"}
+      =button_to "わかった。", "/correct/#{question.id}", {method: :post, class: "btn-primary ans_check_btn", id: "correct-btn-#{question.id}" ,question_id: "#{question.id}"}
+      =form_with url:"/importance_change/#{question.id}", local:true do |f|
+        =f.label :importance,"重要度", class: "form-importance"
+        =f.select :importance, [['0', 0],['1', 1],['2', 2],['3', 3],['4', 4],['5', 5]], { include_blank: true, selected: question.importance }, { id: "importance", class: "aaa" }
+        =f.submit "更新", class: 'btn btn-success ans_check_btn', id:"correct-btn-#{question.id}" ,question_id: "#{question.id}"
+    .ans_show_btn_contents.display-none{ id: "after_ans_#{question.id}" }
+      .correct_ans_cnt
+        ="正解数：#{question.ans_count}"
+      %button.release_btn.btn-danger{ question_id: "#{question.id}" } リリース

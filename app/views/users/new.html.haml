@@ -13,7 +13,7 @@
         .form-group
           = f.label :email, 'メールアドレス'
           = f.text_field :email, class: 'form-control login-form', autocomplete:'off'
-        -if @user.errors.messages[:name] == [] && @user.errors.messages[:email] == []
+        -if @user.errors.messages[:password] != []
           .form_error_message パスワードを正しく登録してください。
         .form-group
           = f.label :password, 'パスワード'
