@@ -18,10 +18,10 @@
       =button_to "わからなかった。", "/wrong/#{question.id}", {method: :post, class: "btn-danger ans_check_btn", id: "wrong-btn-#{question.id}" ,question_id: "#{question.id}"}
       =button_to "わかった。", "/correct/#{question.id}", {method: :post, class: "btn-primary ans_check_btn", id: "correct-btn-#{question.id}" ,question_id: "#{question.id}"}
       =form_with url:"/importance_change/#{question.id}", local:true do |f|
-        =f.label :importance,"重要度", class: "form-importance"
-        =f.select :importance, [['0', 0],['1', 1],['2', 2],['3', 3],['4', 4],['5', 5]], { include_blank: true, selected: question.importance }, { id: "importance", class: "aaa" }
+        =f.label :importance,"次までの解答時間を選ぶ", class: "form-importance"
+        =f.select :importance, [['6ヶ月後', 0],['3ヶ月後', 1],['1ヶ月後', 2],['7日後', 3],['3日後', 4],['12時間後', 5]], { include_blank: true, selected: question.importance }, { id: "importance", class: "aaa" }
         =f.submit "更新", class: 'btn btn-success ans_check_btn', id:"correct-btn-#{question.id}" ,question_id: "#{question.id}"
-    .ans_show_btn_contents.display-none{ id: "after_ans_#{question.id}" }
+    .ans_show_btn_contents.display-none{ id: "after_ans_#{question.id }" }
       .correct_ans_cnt
-        ="正解数：#{question.ans_count}"
+        =question.time_to_ans
       %button.release_btn.btn-danger{ question_id: "#{question.id}" } リリース

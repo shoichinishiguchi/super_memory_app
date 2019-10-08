@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = current_user.questions.recent.limit(20)
+    @questions = current_user.questions.remaining_time_asc
   end
 
   def new
@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :question, :answer).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :question, :answer).merge(user_id: current_user.id, last_ans_date: Time.now)
   end
 
 end
