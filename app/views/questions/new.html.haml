@@ -21,6 +21,20 @@
             = f.label :answer, "答え" , class: "label label-answer"
             = f.text_area :answer, class: "form form-group__form form-answer", autocomplete:'off'
             .form-group__caution (最大400文字)
+        .form-group.form-group-category#category_forms
+          = f.label :category, "カテゴリ",class: "label label-category"
+          = f.hidden_field :category, class: "form-group__form form-category",value:"hidden_cate"
+        .category-add-forms
+          .category-add-forms__set
+            = text_field_tag :categories, "",{id:"cate-1_input",cate_id:1}
+            %button{type:"button",class:"cate_btn btn-primary",id:"cate-1_btn", category_id:1} 確定
         =f.submit "登録", class: 'btn btn-primary form-btn'
     .question-new-questions
       = render @questions
+
+
+-# <input type="text" name="category" id="cate-1_input" value="" cate_id="1">
+
+-# <input class="cate_btn" id="cate-1_btn" cate_id="1" type="submit" value="確定">
+
+-# <input class="form-group__form form-category" value="hidden_cate" type="hidden" name="question[category-1]" id="question_category">

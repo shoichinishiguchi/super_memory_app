@@ -7,6 +7,8 @@ class Question < ApplicationRecord
 
   scope :recent, -> { order(created_at: "DESC") }
   scope :remaining_time_asc, -> { order(next_ans_date: "ASC")}
+  scope :importance_desc, -> { order(importance: "DESC") }
+  scope :should_ans_order, ->{ remaining_time_asc.importance_desc }
 
   def created_time
     (created_at + 9.hour).strftime("%Y/%m/%d %H:%M:%S")
@@ -26,7 +28,7 @@ class Question < ApplicationRecord
   end
 
   def time_to_ans
-    remaining_time = (self.last_ans_date - Time.now).to_i
+    remaining_time = (self&.last_ans_date - Time.now).to_i
     case importance
     when 0 # +6ヶ月
       remaining_time += 6*30*24*60*60
